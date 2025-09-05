@@ -1,0 +1,280 @@
+.header {
+  max-width: 100%;
+  background-color: #00745b15;
+  color: white;
+  padding: 10px 20px;
+}
+
+.header-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+
+.logo img {
+  height: auto;
+  width: 60%;
+  margin-top: 30px;
+}
+
+.search-icons-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  gap: 10px;
+}
+
+.search-bar {
+  flex: 3;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  color: #aaa;
+  font-size: 20px;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  padding-left: 35px;
+}
+
+.search-bar input:focus {
+  border-color: #22a186;
+  outline: none;
+}
+
+.icons {
+  display: flex;
+  gap: 10px;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.icon {
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: black;
+}
+
+.menu {
+  margin: 20px 0;
+}
+
+.menu ul {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  gap: 10px;
+  padding: 0;
+}
+
+.menu li {
+  list-style: none;
+}
+
+.menu a {
+  color: rgb(37, 37, 37);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.heart-icon-container {
+  position: relative;
+  display: inline-block;
+}
+
+.cart-icon-container {
+  position: relative;
+  display: inline-block;
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #22a186;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.active-link {
+  background-color: #ffffff;
+  padding: 5px 0;
+}
+
+.menu .has-submenu .submenu {
+  display: none;
+}
+
+.menu .has-submenu .submenu.open {
+  display: flex;
+  flex-direction: column;
+}
+
+.has-submenu {
+  position: relative;
+  cursor: pointer;
+}
+
+.has-submenu > span {
+  font-weight: bold;
+  font-size: 1.2rem;
+  display: block;
+  padding: 5px 0;
+  color: black;
+}
+
+.submenu {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-left: 15px;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+
+.submenu li {
+  list-style: none;
+}
+
+.submenu li a {
+  font-size: 1rem;
+  color: rgb(37, 37, 37);
+  text-decoration: none;
+  font-weight: normal;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+@media (min-width: 640px) {
+  .header {
+    padding: 0;
+    padding-bottom: 0;
+  }
+
+  .header-top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 20px;
+  }
+
+  .logo {
+    flex-shrink: 0;
+  }
+
+  .logo img {
+    height: auto;
+    width: 200px;
+    margin-top: 0;
+  }
+
+  .search-icons-wrapper {
+    display: flex;
+    margin-top: 45px;
+  }
+
+  .search-bar {
+    margin-left: 20px;
+  }
+
+  .search-bar input {
+    display: flex;
+    width: 300px;
+  }
+
+  .icons {
+    display: flex;
+    gap: 10px;
+  }
+
+  .menu {
+    margin: 0;
+  }
+
+  .menu ul {
+    flex-direction: row;
+    justify-content: left;
+    background-color: rgb(48, 48, 48);
+    padding: 10px;
+    gap: 20px;
+  }
+
+  .menu a {
+    font-size: 1rem;
+    color: rgb(255, 255, 255);
+  }
+
+  .active-link {
+    background-color: #5fa394;
+    border-bottom: 1px solid #5fa394;
+  }
+
+  /* Kategorier-dropdown */
+  .menu .has-submenu {
+    position: relative;
+  }
+
+  .menu .has-submenu > span {
+    color: #fff;
+    font-weight: bold;
+    padding: 0;
+    font-size: large;
+  }
+
+  .menu .has-submenu .submenu {
+    display: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .menu .has-submenu .submenu li {
+    padding: 7px 15px;
+  }
+
+  .menu .has-submenu .submenu li a {
+    color: #fff;
+  }
+
+  .menu .has-submenu:hover .submenu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: -30px;
+    background-color: rgb(48, 48, 48);
+    padding: 10px 0;
+    min-width: 200px;
+    gap: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.363);
+    z-index: 100;
+  }
+}
+
+@media (min-width: 1024px) {
+  .menu a {
+    font-size: 1.1rem;
+    padding: 10px 20px;
+  }
+}
