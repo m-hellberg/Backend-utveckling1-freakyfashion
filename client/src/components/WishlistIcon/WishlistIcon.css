@@ -1,0 +1,14 @@
+.wishlist-icon {
+  font-size: 30px;
+  color: black;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.wishlist-icon.filled {
+  color: red;
+}
+
+.wishlist-icon:hover {
+  color: red;
+}
