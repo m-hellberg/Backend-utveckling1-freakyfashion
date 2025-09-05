@@ -1,0 +1,76 @@
+.admin-categories {
+  padding: 20px;
+}
+
+.categories-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.categories-header h2 {
+  margin: 0;
+}
+
+.new-category-button {
+  background-color: black;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.new-category-button:hover {
+  background-color: rgb(85, 85, 85);
+}
+
+.categories-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  border: 1px solid rgb(139, 139, 139);
+}
+
+.categories-table th,
+.categories-table td {
+  border-bottom: 1px solid #bebebe;
+  padding: 10px;
+  text-align: left;
+}
+
+.categories-table th {
+  background-color: #bebebe;
+}
+
+.categories-table td {
+  border-right: 1px solid #bebebe;
+}
+
+.categories-table td:last-child {
+  border-right: none;
+  text-align: center;
+  width: 60px;
+}
+
+.categories-table tr:nth-child(even) {
+  background-color: #f7f7f7;
+}
+
+.categories-table tr:nth-child(odd) {
+  background-color: #eeeeee;
+}
+
+.delete-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+  font-size: 1.1rem;
+}
+
+.delete-button:hover {
+  color: rgb(252, 0, 0);
+}
