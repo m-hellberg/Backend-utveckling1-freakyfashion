@@ -60,12 +60,12 @@ Follow these steps to get the project up and running locally:
 
 git clone https://github.com/m-hellberg/Backend-utveckling1-Freakyfashion
 
-Navigate to the project folder:
+2. Navigate to the project folder:
 
 ```bash
 cd Freakyfashion
 ```
-Install dependencies:
+3. Install dependencies:
 
 ```bash
 cd server
@@ -74,7 +74,7 @@ npm install
 cd ../client
 npm install
 ```
-Running the Project
+4. Running the Project
 
 Start frontend and backend servers in separate terminals:
 
@@ -90,7 +90,7 @@ Terminal 2 (Backend):
 cd server
 npm run dev
 ```
-Open your browser and visit http://localhost:3000
+5. Open your browser and visit http://localhost:3000
 
 Database Setup
 
