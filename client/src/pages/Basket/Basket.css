@@ -1,0 +1,41 @@
+.basket-title {
+  padding: 30px;
+  justify-self: center;
+}
+
+.to-checkout-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.to-checkout-button {
+  background-color: #22a186;
+  color: white;
+  padding: 10px 20px;
+  width: 200px;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.to-checkout-button:hover {
+  background-color: #000000;
+}
+
+.basket-message {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+.filled-basket-message {
+  color: #22a186;
+}
+
+.empty-basket-message {
+  color: #555;
+}

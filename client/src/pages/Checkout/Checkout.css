@@ -1,0 +1,173 @@
+.checkout-title {
+  padding: 30px;
+  justify-self: center;
+}
+
+.checkout-form {
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.checkout-form h2 {
+  margin-bottom: 20px;
+  justify-self: center;
+}
+
+.input-field {
+  margin-bottom: 20px;
+}
+
+.input-field label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.input-field input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #c0c0c0;
+  border-radius: 3px;
+  font-size: 1rem;
+}
+
+.address-section {
+  margin-top: 30px;
+  padding: 15px;
+  padding-top: 20px;
+  padding-bottom: 5px;
+  border: 1px solid #ddd;
+  position: relative;
+}
+
+.address-section h3 {
+  position: absolute;
+  top: -11px;
+  left: 15px;
+  background-color: white;
+  padding: 0 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.address-section .input-field {
+  margin-bottom: 20px;
+}
+
+.submit-button {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.submit-button button {
+  padding: 10px 20px;
+  width: 200px;
+  font-size: 1.2rem;
+  background-color: #22a186;
+  color: white;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button button:hover {
+  background-color: #000000;
+}
+
+.newsletter-checkbox {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.newsletter-checkbox input {
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.newsletter-checkbox label {
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.edit-cart-link {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.edit-cart-link a {
+  color: #22a186;
+  text-decoration: underline;
+}
+
+@media (min-width: 640px) {
+  .checkout-form h2 {
+    justify-self: left;
+  }
+
+  .name-fields {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .name-fields .input-field {
+    width: 49%;
+  }
+
+  #email {
+    width: 49%;
+  }
+
+  .address-section .input-field:nth-child(2) input {
+    width: 567px;
+  }
+
+  .address-section .input-field:nth-child(3) input {
+    width: 30%;
+  }
+
+  .address-section .input-field:nth-child(4) input {
+    width: 49%;
+  }
+
+  .edit-cart-link {
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .name-fields {
+    justify-content: left;
+  }
+  .name-fields .input-field {
+    width: 482.16px;
+    margin-right: 20px;
+  }
+
+  #email {
+    width: 482.16px;
+  }
+
+  .address-section .input-field:nth-child(3) input {
+    width: 285.3px;
+  }
+
+  .address-section .input-field:nth-child(4) input {
+    width: 465.98px;
+  }
+
+  .submit-button button {
+    width: 250px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .checkout-form {
+    padding: 0 50px;
+  }
+}

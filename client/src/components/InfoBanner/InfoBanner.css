@@ -1,0 +1,39 @@
+.info-banner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  text-align: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  margin-top: 40px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: left;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.info-item svg {
+  font-size: 1.5rem;
+  color: #22a186;
+}
+
+@media (min-width: 640px) {
+  .info-banner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .info-item {
+    justify-content: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .info-banner {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

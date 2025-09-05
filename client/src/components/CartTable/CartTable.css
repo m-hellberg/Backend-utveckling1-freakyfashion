@@ -1,0 +1,152 @@
+.cart-table {
+  display: none;
+}
+
+.mobile-cart-table .cart-box {
+  margin: 0 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  padding: 15px;
+  border: 1px solid black;
+  border-bottom: none;
+}
+
+.mobile-cart-table .cart-box:last-child {
+  border-bottom: 1px solid black;
+}
+
+.mobile-cart-table .cart-box-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.mobile-cart-table .cart-box-info .product-name {
+  font-weight: bold;
+}
+
+.mobile-cart-table .cart-box-info .price {
+  font-size: 1.2rem;
+  color: #000000;
+}
+
+.mobile-cart-table .cart-box-info .original-price {
+  font-size: 0.9rem;
+  color: #525252;
+}
+
+.mobile-cart-table .cart-quantity {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mobile-cart-table .cart-quantity button {
+  font-size: 18px;
+  padding: 5px 10px;
+  border: none;
+  background-color: #ffffff;
+}
+
+.mobile-cart-table .cart-quantity input {
+  width: 40px;
+  text-align: center;
+}
+
+.mobile-cart-table .remove-button {
+  margin-left: 10px;
+  border: none;
+  background-color: #ffffff;
+}
+
+.mobile-total-sum {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 20px;
+  padding-right: 20px;
+}
+
+.total-sum {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .mobile-cart-table {
+    display: none;
+  }
+
+  .mobile-total-sum {
+    display: none;
+  }
+
+  .total-sum {
+    display: block;
+    text-align: right;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    padding-right: 40px;
+  }
+
+  .cart-table {
+    display: table;
+    width: 95%;
+    border-collapse: collapse;
+    justify-self: center;
+  }
+
+  .cart-table th,
+  .cart-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+
+  .cart-table td:last-child {
+    text-align: center;
+    width: 155px;
+  }
+
+  .cart-table th {
+    background-color: #f4f4f4;
+  }
+
+  .cart-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  .cart-table tr:nth-child(odd) {
+    background-color: #e2e2e2;
+  }
+
+  .cart-table button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+  }
+
+  .cart-table button:hover {
+    color: #22a186;
+  }
+
+  .cart-table button:disabled {
+    cursor: not-allowed;
+    color: #ccc;
+  }
+
+  .decrease-button,
+  .increase-button {
+    padding: 0 10px;
+  }
+
+  .remove-button {
+    padding-left: 10px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .total-sum {
+    padding-right: 80px;
+  }
+}

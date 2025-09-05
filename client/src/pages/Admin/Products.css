@@ -1,0 +1,72 @@
+.admin-products {
+  padding: 20px;
+}
+
+.products-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.new-product-button {
+  background-color: black;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.new-product-button:hover {
+  background-color: rgb(85, 85, 85);
+}
+
+.products-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  border: 1px solid rgb(139, 139, 139);
+}
+
+.products-table th,
+.products-table td {
+  border-bottom: 1px solid #bebebe;
+  padding: 10px;
+  text-align: left;
+}
+
+.products-table th {
+  background-color: #bebebe;
+}
+
+.products-table td {
+  border-right: 1px solid #bebebe;
+}
+
+.products-table td:last-child {
+  border-right: none;
+  text-align: center;
+  width: 60px;
+}
+
+.products-table tr:nth-child(even) {
+  background-color: #f7f7f7;
+}
+
+.products-table tr:nth-child(odd) {
+  background-color: #eeeeee;
+}
+
+.delete-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+  font-size: 1.1rem;
+}
+
+.delete-button:hover {
+  color: rgb(252, 0, 0);
+}
