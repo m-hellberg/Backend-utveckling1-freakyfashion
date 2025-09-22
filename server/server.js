@@ -669,5 +669,13 @@ app.delete("/api/favorites/remove/:productId", (req, res) => {
   }
 });
 
+// Serve frontend statiska filer (För Render)
+app.use(express.static(path.join(__dirname, "../client/dist")));
+
+// Catch-all: skicka alla andra requests till index.html (För Render)
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/dist/index.html"));
+});
+
 //app.listen(port, () => console.log(`Server started on port ${port}`));
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
