@@ -44,13 +44,15 @@ CREATE TABLE IF NOT EXISTS order_items (
 
 app.use(express.json());
 app.use(cors({
-  origin: "http://localhost:3000",
+  origin: "https://freakyfashion-portfolio.onrender.com",
+  //origin: "http://localhost:3000",
   credentials: true
 }));
 
 app.use(
   session({
-    secret: "hemlig-session-nyckel",
+    secret: process.env.SESSION_SECRET || "fallback-secret",
+    //secret: "hemlig-session-nyckel",
     resave: false,
     saveUninitialized: false,
     store: new SQLiteStore({ db: "sessions.db", dir: "./db" }),
