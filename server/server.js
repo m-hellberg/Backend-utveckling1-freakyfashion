@@ -8,8 +8,7 @@ const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
 
-//const port = 8000;
-const PORT = process.env.PORT || 8000;
+const port = 8000;
 const db = new Database("./db/freakyfashion.db", { verbose: console.log });
 const app = express();
 
@@ -44,15 +43,13 @@ CREATE TABLE IF NOT EXISTS order_items (
 
 app.use(express.json());
 app.use(cors({
-  origin: "https://freakyfashion-portfolio.onrender.com",
-  //origin: "http://localhost:3000",
+  origin: "http://localhost:3000",
   credentials: true
 }));
 
 app.use(
   session({
-    secret: process.env.SESSION_SECRET || "fallback-secret",
-    //secret: "hemlig-session-nyckel",
+    secret: "hemlig-session-nyckel",
     resave: false,
     saveUninitialized: false,
     store: new SQLiteStore({ db: "sessions.db", dir: "./db" }),
@@ -141,21 +138,6 @@ function buildCartResponse(req) {
 // populära produkter
 app.get("/api/products", (req, res) => {
   try {
-    if (process.env.MOCK_DATA === "true") {
-      // Returnera mockade produkter
-      return res.json([
-        { id: 1, name: "Placeholder Product 1", price: 199, image: "/images/product-placeholder.png" },
-        { id: 2, name: "Placeholder Product 2", price: 199, image: "/images/product-placeholder.png" },
-        { id: 3, name: "Placeholder Product 3", price: 199, image: "/images/product-placeholder.png" },
-        { id: 4, name: "Placeholder Product 4", price: 199, image: "/images/product-placeholder.png" },
-        { id: 5, name: "Placeholder Product 5", price: 199, image: "/images/product-placeholder.png" },
-        { id: 6, name: "Placeholder Product 6", price: 199, image: "/images/product-placeholder.png" },
-        { id: 7, name: "Placeholder Product 7", price: 199, image: "/images/product-placeholder.png" },
-        { id: 8, name: "Placeholder Product 8", price: 199, image: "/images/product-placeholder.png" },
-      ]);
-    }
-
-    // Riktiga produkter från databasen
     const products = db.prepare("SELECT * FROM products WHERE isPopular = 1").all();
     res.json(products);
   } catch (error) {
@@ -309,25 +291,6 @@ app.post("/api/products", requireAdmin, uploadProduct.single("image"), (req, res
 // hämta produkter för en kategori
 app.get("/api/categories/:slug/products", (req, res) => {
   try {
-    if (process.env.MOCK_DATA === "true") {
-      // Returnera mockade produkter oavsett slug
-      return res.json([
-        {
-          id: 1,
-          name: "Placeholder Product 1",
-          price: 199,
-          image: "/images/product-placeholder.png",
-        },
-        {
-          id: 2,
-          name: "Placeholder Product 2",
-          price: 299,
-          image: "/images/product-placeholder.png",
-        },
-      ]);
-    }
-
-    // Riktiga databasen
     const { slug } = req.params;
     const category = db.prepare("SELECT * FROM categories WHERE slug = ?").get(slug);
     if (!category) return res.status(404).json({ error: "Kategorin hittades inte" });
@@ -348,24 +311,8 @@ app.get("/api/categories/:slug/products", (req, res) => {
 
 // admin: alla kategorier
 app.get("/api/admin/categories", (req, res) => {
-  if (process.env.MOCK_DATA === "true") {
-    return res.json([
-      { id: 1, name: "Mock Kategori 1", slug: "mock-1" },
-      { id: 2, name: "Mock Kategori 2", slug: "mock-2" },
-      { id: 3, name: "Mock Kategori 3", slug: "mock-3" },
-      { id: 4, name: "Mock Kategori 4", slug: "mock-4" },
-      { id: 5, name: "Mock Kategori 5", slug: "mock-5" },
-      { id: 6, name: "Mock Kategori 6", slug: "mock-6" },
-    ]);
-  }
-
-  try {
-    const categories = db.prepare("SELECT * FROM categories").all();
-    res.json(categories);
-  } catch (error) {
-    console.error("Fel vid hämtning av admin-kategorier:", error);
-    res.status(500).json({ error: "Serverfel vid hämtning av admin-kategorier" });
-  }
+  const categories = db.prepare("SELECT * FROM categories").all();
+  res.json(categories);
 });
 
 // lägg till ny kategori med filuppladdning
@@ -721,13 +668,4 @@ app.delete("/api/favorites/remove/:productId", (req, res) => {
   }
 });
 
-// Serve frontend statiska filer (För Render)
-app.use(express.static(path.join(__dirname, "../client/dist")));
-
-// Catch-all: skicka alla andra requests till index.html (För Render)
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/dist/index.html"));
-});
-
-//app.listen(port, () => console.log(`Server started on port ${port}`));
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(port, () => console.log(`Server started on port ${port}`));
