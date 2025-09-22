@@ -1,4 +1,4 @@
-import "./NewBadge.css";
+import "./Newbadge.css";
 
 const NewBadge = () => {
   return <div className="new-badge">Nyhet</div>;
