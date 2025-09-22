@@ -7,7 +7,7 @@ import Search from "../pages/Search/Search";
 import Basket from "../pages/Basket/Basket";
 import Checkout from "../pages/Checkout/Checkout";
 import AllProducts from "../pages/AllProducts/AllProducts";
-import LogIn from "../pages/LogIn/Login";
+import Login from "../pages/LogIn/LogIn";
 import Register from "../pages/Register/Register";
 import Categories from "../pages/Categories/Categories";
 import News from "../pages/News/News";
@@ -31,7 +31,7 @@ const PublicRoutes = () => {
             <Route path="/basket" element={<Basket />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/allproducts" element={<AllProducts />} />
-            <Route path="/login" element={<LogIn />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/categories/:slug" element={<Categories />} />
             <Route path="/news" element={<News />} />
