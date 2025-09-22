@@ -141,6 +141,21 @@ function buildCartResponse(req) {
 // populära produkter
 app.get("/api/products", (req, res) => {
   try {
+    if (process.env.MOCK_DATA === "true") {
+      // Returnera mockade produkter
+      return res.json([
+        { id: 1, name: "Placeholder Product 1", price: 199, image: "/images/product-placeholder.png" },
+        { id: 2, name: "Placeholder Product 2", price: 199, image: "/images/product-placeholder.png" },
+        { id: 3, name: "Placeholder Product 3", price: 199, image: "/images/product-placeholder.png" },
+        { id: 4, name: "Placeholder Product 4", price: 199, image: "/images/product-placeholder.png" },
+        { id: 5, name: "Placeholder Product 5", price: 199, image: "/images/product-placeholder.png" },
+        { id: 6, name: "Placeholder Product 6", price: 199, image: "/images/product-placeholder.png" },
+        { id: 7, name: "Placeholder Product 7", price: 199, image: "/images/product-placeholder.png" },
+        { id: 8, name: "Placeholder Product 8", price: 199, image: "/images/product-placeholder.png" },
+      ]);
+    }
+
+    // Riktiga produkter från databasen
     const products = db.prepare("SELECT * FROM products WHERE isPopular = 1").all();
     res.json(products);
   } catch (error) {
@@ -294,6 +309,25 @@ app.post("/api/products", requireAdmin, uploadProduct.single("image"), (req, res
 // hämta produkter för en kategori
 app.get("/api/categories/:slug/products", (req, res) => {
   try {
+    if (process.env.MOCK_DATA === "true") {
+      // Returnera mockade produkter oavsett slug
+      return res.json([
+        {
+          id: 1,
+          name: "Placeholder Product 1",
+          price: 199,
+          image: "/images/product-placeholder.png",
+        },
+        {
+          id: 2,
+          name: "Placeholder Product 2",
+          price: 299,
+          image: "/images/product-placeholder.png",
+        },
+      ]);
+    }
+
+    // Riktiga databasen
     const { slug } = req.params;
     const category = db.prepare("SELECT * FROM categories WHERE slug = ?").get(slug);
     if (!category) return res.status(404).json({ error: "Kategorin hittades inte" });
@@ -314,8 +348,24 @@ app.get("/api/categories/:slug/products", (req, res) => {
 
 // admin: alla kategorier
 app.get("/api/admin/categories", (req, res) => {
-  const categories = db.prepare("SELECT * FROM categories").all();
-  res.json(categories);
+  if (process.env.MOCK_DATA === "true") {
+    return res.json([
+      { id: 1, name: "Mock Kategori 1", slug: "mock-1" },
+      { id: 2, name: "Mock Kategori 2", slug: "mock-2" },
+      { id: 3, name: "Mock Kategori 3", slug: "mock-3" },
+      { id: 4, name: "Mock Kategori 4", slug: "mock-4" },
+      { id: 5, name: "Mock Kategori 5", slug: "mock-5" },
+      { id: 6, name: "Mock Kategori 6", slug: "mock-6" },
+    ]);
+  }
+
+  try {
+    const categories = db.prepare("SELECT * FROM categories").all();
+    res.json(categories);
+  } catch (error) {
+    console.error("Fel vid hämtning av admin-kategorier:", error);
+    res.status(500).json({ error: "Serverfel vid hämtning av admin-kategorier" });
+  }
 });
 
 // lägg till ny kategori med filuppladdning
