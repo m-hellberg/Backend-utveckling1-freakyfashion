@@ -106,7 +106,7 @@ UPDATE categories SET slug = 'sweaters' WHERE name = 'Tröjor';
 UPDATE categories SET slug = 'jackets' WHERE name = 'Jackor';
 UPDATE categories SET slug = 'jumpsuits' WHERE name = 'Jumpsuits';
 
--- Skapar en kopplingstabell för produkter och kategorier med ON DELETE CASCADE
+-- Skapar en kopplingstabell för produkter och kategorier
 CREATE TABLE product_categories_new (
   product_id INTEGER NOT NULL,
   category_id INTEGER NOT NULL,

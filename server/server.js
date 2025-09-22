@@ -8,7 +8,8 @@ const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
 
-const port = 8000;
+//const port = 8000;
+const PORT = process.env.PORT || 8000;
 const db = new Database("./db/freakyfashion.db", { verbose: console.log });
 const app = express();
 
@@ -101,7 +102,7 @@ function requireAdmin(req, res, next) {
   next();
 }
 
-// CART helpers 
+// CART helpers
 function getSessionCart(req) {
   if (!req.session.cart) req.session.cart = [];
   return req.session.cart;
@@ -112,7 +113,7 @@ function setSessionCart(req, cart) {
 }
 
 function buildCartResponse(req) {
-  // inloggad = från DB, annars från session
+  // inloggad från DB, annars session
   if (req.session.user) {
     const items = db.prepare(`
       SELECT products.id, products.name, products.price, products.image, carts.quantity
@@ -235,7 +236,7 @@ const generateSlug = (name) => {
 app.post("/api/products", requireAdmin, uploadProduct.single("image"), (req, res) => {
   try {
     const { name, description, brand, sku, price, publicationDate } = req.body;
-    const categories = JSON.parse(req.body.categories || "[]"); // 👈 flera kategorier
+    const categories = JSON.parse(req.body.categories || "[]"); // flera kategorier
 
     if (!req.file) {
       return res.status(400).json({ error: "Bild krävs" });
@@ -668,4 +669,5 @@ app.delete("/api/favorites/remove/:productId", (req, res) => {
   }
 });
 
-app.listen(port, () => console.log(`Server started on port ${port}`));
+//app.listen(port, () => console.log(`Server started on port ${port}`));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

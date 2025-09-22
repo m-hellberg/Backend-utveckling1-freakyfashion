@@ -12,7 +12,7 @@ const NewProduct = () => {
   });
   const [image, setImage] = useState(null);
   const [categories, setCategories] = useState([]);
-  const [selectedCategories, setSelectedCategories] = useState([]); // 👈 flera kategorier
+  const [selectedCategories, setSelectedCategories] = useState([]);
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -50,7 +50,7 @@ const NewProduct = () => {
     if (image) {
       data.append("image", image);
     }
-    // Lägg till kategorier som JSON-sträng
+
     data.append("categories", JSON.stringify(selectedCategories));
 
     const response = await fetch("http://localhost:8000/api/products", {

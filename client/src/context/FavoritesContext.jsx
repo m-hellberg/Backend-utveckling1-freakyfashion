@@ -45,7 +45,6 @@ export const FavoritesProvider = ({ children }) => {
         );
       }
       if (res.ok) {
-        // hämta uppdaterad lista direkt
         const updatedRes = await fetch("http://localhost:8000/api/favorites", {
           credentials: "include",
         });
